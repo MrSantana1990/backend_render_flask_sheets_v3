@@ -14,8 +14,9 @@ def _norm(s: str) -> str:
     return unidecode(str(s or "")).strip().lower()
 
 def _a1_tab(tab: str) -> str:
-    # Sempre quote o nome da aba em A1 notation (lida com espaços/acentos)
-    return f"'{str(tab).replace(\"'\", \"''\")}'"
+    # Sempre quote o nome da aba em A1 notation, duplicando apóstrofos
+    t = str(tab).replace("'", "''")
+    return f"'{t}'"
 
 
 class Sheets:
