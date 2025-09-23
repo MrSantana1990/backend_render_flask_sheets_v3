@@ -10,7 +10,12 @@ CREDS_JSON = os.getenv("GOOGLE_CREDENTIALS_JSON")
 ALLOWED = os.getenv("ALLOWED_ORIGINS", "*")
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": ALLOWED.split(",")}})
+CORS(app, resources={r"/api/*": {
+    "origins": "*",
+    "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    "allow_headers": ["*"],
+    "supports_credentials": True
+}})
 
 sheets = Sheets(SHEETS_ID, CREDS_JSON)
 
