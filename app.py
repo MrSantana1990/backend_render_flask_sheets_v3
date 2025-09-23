@@ -13,8 +13,7 @@ app = Flask(__name__)
 CORS(app, resources={r"/api/*": {
     "origins": "*",
     "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-    "allow_headers": ["*"],
-    "supports_credentials": True
+    "allow_headers": ["*"]
 }})
 
 sheets = Sheets(SHEETS_ID, CREDS_JSON)
